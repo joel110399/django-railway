@@ -1,0 +1,290 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>holaaa</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.3.0/paper.css"
+    />
+    <style>
+      @page {
+        size: A4;
+      }
+    </style>
+    <style>
+      body {
+        /* font-size: 1.5rem; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: justify;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px; /* Grosor del divisor */
+        background-color: #000; /* Color del divisor (en este caso, negro) */
+        margin: 10px 0; /* Margen superior e inferior */
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid black;
+        padding: 8px;
+        /* text-align: center;  */
+      }
+
+      /* Footer */
+      .footer {
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        width: 98%;
+        height: 60px; /* Altura del footer */
+        /* background-color: red; */
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body class="A4">
+    <section class="sheet">
+      <div style="padding: 10mm">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <img
+            style="height: fit-content; width: 200px"
+            src="https://i.ibb.co/zf3Bdm3/logo2.png"
+            alt="Logo"
+          />
+          <div
+            style="
+              display: flex;
+              background-color: #979797;
+              padding: 5px;
+              border-radius: 10px;
+              height: 24px;
+              align-items: center;
+            "
+          >
+            <p style="font-size: 16px; color: #fff">CONFIDENCIAL</p>
+          </div>
+        </div>
+        <br />
+        <div
+          style="
+            background-color: #979797;
+            padding: 5px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            height: 24px;
+            align-items: center;
+          "
+        >
+          <p style="font-size: 16px; color: #fff">VISIÓN GENERAL</p>
+        </div>
+        <br />
+        <div style="display: flex; flex-direction: row-reverse">
+          <div
+            style="
+              background-color: #eaeaea;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              height: 24px;
+              flex-direction: row-reverse;
+              align-items: center;
+            "
+          >
+            <p style="font-size: 16px; color: #000">Data ingresada</p>
+          </div>
+        </div>
+        <br />
+        <div style="display: flex">
+          <div
+            style="
+              background-color: #979797;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              width: 30%;
+              height: 24px;
+              align-items: center;
+              margin-right: 10px;
+            "
+          >
+            <p style="font-size: 16px; color: #000">Nombre Completo:</p>
+          </div>
+          <div
+            style="
+              background-color: #eaeaea;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              width: 66%;
+              height: 24px;
+              align-items: center;
+            "
+          >
+            <p style="font-size: 16px; color: #000">FELIX BAUTISTA</p>
+          </div>
+        </div>
+        <br />
+        <div style="display: flex">
+          <div
+            style="
+              background-color: #979797;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              width: 30%;
+              height: 24px;
+              align-items: center;
+              margin-right: 10px;
+            "
+          >
+            <p style="font-size: 16px; color: #000">Estado:</p>
+          </div>
+          <div
+            style="
+              background-color: #eaeaea;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              width: 66%;
+              height: 24px;
+              align-items: center;
+            "
+          >
+            <p style="font-size: 16px; color: #000">[Coincidente]</p>
+          </div>
+        </div>
+        <br />
+        <div
+          style="
+            background-color: #979797;
+            padding: 5px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            height: 24px;
+            align-items: center;
+          "
+        >
+          <p style="font-size: 16px; color: #fff">HALLAZGOS CLAVE</p>
+        </div>
+        <br />
+        <div style="display: flex">
+          <div
+            style="
+              background-color: #979797;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              width: 30%;
+              height: 24px;
+              align-items: center;
+              margin-right: 10px;
+            "
+          >
+            <p style="font-size: 16px; color: #000">Total de Coincidencias:</p>
+          </div>
+          <div
+            style="
+              background-color: #eaeaea;
+              padding: 5px;
+              border-radius: 10px;
+              display: flex;
+              justify-content: center;
+              width: 66%;
+              height: 24px;
+              align-items: center;
+            "
+          >
+            <p style="font-size: 16px; color: #000">3</p>
+          </div>
+        </div>
+
+        <div class="footer" style="height: 150px; width: 87%; bottom: 90px">
+          <!-- Footer -->
+          <p style="font-size: 12px; color: #000">
+            Este reporte es proporcionado por ComplianceX, una herramienta
+            desarrollada por Executive Risk & Compliance Solutions (ERCS),
+            E.R.L. La información presentada se basa en fuentes consideradas
+            confiables, pero Executive Risk & Compliance Solutions (ERCS),
+            E.R.L. no garantiza su exactitud ni integridad completa. Este
+            reporte está destinado a ser utilizado solo por la persona o
+            representantes de la entidad que lo ha recibido y en el contexto del
+            cual se ha requerido específicamente. Cualquier uso no responsable o
+            realización por sujetos terceros de nuevas actividades en
+            conformidad con la ley en su respectivo país, no es responsabilidad
+            de desarrollar y sus ejecutivos. Mientras que nos esforzamos por
+            ofrecer información de calidad, Executive Risk & Compliance
+            Solutions (ERCS), E.R.L. no se hace responsable de las
+            interpretaciones o acciones derivadas de su uso, ni de los daños
+            indirectos que puedan surgir. Este reporte está sujeto a cambios y
+            recomendamos su revisión periódica. Cualquier divulgación o acceso
+            por parte tercera no cumpliendo con lo establecido del presente
+            aviso será considerado prohibido. Para más información o
+            aclaraciones, por favor contacte a Executive Risk & Compliance
+            Solutions (ERCS), E.R.L. para evaluar o discutir de las visitas
+            habilitadas. Al utilizar este reporte, el usuario reconoce y acepta
+            los términos aquí establecidos.
+          </p>
+        </div>
+        <div
+          class="footer"
+          style="display: flex; justify-content: space-between; width: 87%"
+        >
+          <!-- Footer -->
+          <div>
+            <div style="display: flex; height: 25px; align-items: center">
+              <p style="font-size: 16px; color: #000">Fecha de generación:</p>
+              <p style="font-size: 16px; color: #000">01/01/2024</p>
+            </div>
+            <div style="display: flex; height: 25px; align-items: center">
+              <p style="font-size: 16px; color: #000">Generado por:</p>
+              <p style="font-size: 16px; color: #000">
+                Paola Clisante de EXCELSIOR
+              </p>
+            </div>
+          </div>
+          <div>
+            <div style="display: flex; height: 25px; align-items: center">
+              <p style="font-size: 16px; color: #000">
+                Todos los derechos reservados.
+              </p>
+            </div>
+            <div style="display: flex; height: 25px; align-items: center">
+              <p style="font-size: 16px; color: #000">© 2023 Excelsior.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
