@@ -30,9 +30,6 @@ SECRET_KEY = 'django-insecure-*uhfq)i9gx6iruge6e^9=86x#li1t5d(q&8to*1svdumnyrx5(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,12 +40,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
-    'rest_framework'
+    'rest_framework',
+    "corsheaders",
+    'documents',
+    'search'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-     "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -139,3 +140,5 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'web-production-05e4.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-05e4.up.railway.app']
+
+CORS_ORIGIN_ALLOW_ALL = True   
