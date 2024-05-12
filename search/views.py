@@ -21,8 +21,8 @@ def search_users(request):
 
         print(searches_performed, searches)
 
-        # if searches_performed >= searches:
-        #     return JsonResponse({"error": "Alcanzaste el limite de busqueas asignados a tu plan."}, safe=False, status=401)
+        if searches_performed >= searches:
+            return JsonResponse({"error": "Alcanzaste el limite de busqueas asignados a tu plan."}, safe=False, status=401)
         
         supabase.table('historico-busqueda').insert({"nombres": data['value'], "user-id": user['id']}).execute()
 
