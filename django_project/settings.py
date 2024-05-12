@@ -137,8 +137,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'web-production-05e4.up.railway.app']
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    'web-production-05e4.up.railway.app', 
+    'https://web-production-05e4.up.railway.app', 
+    '1c5b-186-6-165-243.ngrok-free.app',
+    'https://compliance-x-fe.vercel.app/start'
+]
 
-CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-05e4.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-05e4.up.railway.app',  'https://compliance-x-fe.vercel.app/start']
 
 CORS_ORIGIN_ALLOW_ALL = True   
