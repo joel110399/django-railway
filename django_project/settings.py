@@ -143,7 +143,7 @@ ALLOWED_HOSTS = [
     'web-production-05e4.up.railway.app', 
     'https://web-production-05e4.up.railway.app', 
     '1c5b-186-6-165-243.ngrok-free.app',
-    'https://compliance-x-fe.vercel.app'
+    'compliance-x-fe.vercel.app',
 ]
 
 CSRF_TRUSTED_ORIGINS = ['http://*','https://web-production-05e4.up.railway.app',  'https://compliance-x-fe.vercel.app']
