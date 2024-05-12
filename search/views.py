@@ -39,6 +39,8 @@ def search_users(request):
                 response = requests.get(url)
 
                 xml_data = response.text
+                
+                print("Received data in XML format:", xml_data)
                 json_data = xmltodict.parse(xml_data)
                 print("Received data in JSON format:", json_data)
 
