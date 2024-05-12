@@ -36,6 +36,8 @@ def search_users(request):
                 print(11111111111111111)
                 print(value[0:3])
                 url = f'https://dataportal.jce.gob.do/idcons/IndividualDataHandler.aspx?ServiceID=16ae7f8b-a09d-4956-a167-d5d0807218ba&ID1={value[0:3]}&ID2={value[3:10]}&ID3={value[10:]}'
+                
+                print(url)
                 response = requests.get(url)
 
                 xml_data = response.text
