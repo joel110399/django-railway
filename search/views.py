@@ -36,13 +36,9 @@ def search_users(request):
                 print(11111111111111111)
                 print(value[0:3])
                 url = f'https://dataportal.jce.gob.do/idcons/IndividualDataHandler.aspx?ServiceID=16ae7f8b-a09d-4956-a167-d5d0807218ba&ID1={value[0:3]}&ID2={value[3:10]}&ID3={value[10:]}'
-                
-                print(url)
                 response = requests.get(url)
 
                 xml_data = response.text
-                
-                print("Received data in XML format:", xml_data)
                 json_data = xmltodict.parse(xml_data)
                 print("Received data in JSON format:", json_data)
 
@@ -79,8 +75,6 @@ def search_users(request):
                 for table, criteria in table_criteria_map.items():
                     print(table, criteria)
                     response = supabase.table(table).select('*').text_search(criteria, value).execute()
-                    
-                    print(response.data)
 
                     if response.data:  # Check if there's any data in the response
                         for item in response.data:
@@ -111,6 +105,16 @@ def get_history(request):
 
         return JsonResponse(response.data, safe=False, status=200)
 
+@csrf_exempt
+def get_children(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user = data['user']
+
+        response = supabase.auth.admin.list_users()
+
+        return JsonResponse(response.data, safe=False, status=200)
+
 
 @csrf_exempt
 def register_client(request):
@@ -125,3 +129,56 @@ def register_client(request):
         print(response)
         
         return HttpResponse(status=200)
+    
+    
+@csrf_exempt
+def create_child_user(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user = data['user']
+        data = data['data']
+        children = user['user_metadata']['children']
+        children_limit = user['user_metadata']['children_limit']
+
+        if len(children) >= children_limit:
+            return JsonResponse({"error": "Alcanzaste el limite de hijos asignados a tu plan."}, safe=False, status=401)
+
+        try:
+            res = supabase.auth.sign_up({'email': data['correo'], 'password': data['contrasena'],  
+                'options': {
+                    'data': {
+                        'name': data['nombre'],
+                        'role': 'child',
+                        'parent': user['id'],
+                        'document_id': data['documento'],
+                        # depastamento
+                        # cargo
+                        'type': 'individual',
+                        'plan': user['user_metadata']['plan'],
+                        'status': 'inactive',
+                        'searches': 0,
+                        'searches_performed': 0,
+                        'searches_available': 0,
+                    }
+                }
+            })
+            
+            response = {
+                'id': res.user.id,
+                'name': data['nombre'],
+                'email': res.user.email,
+                'role': 'child',
+                'parent': user['id'],
+                'document_id': data['documento'],
+                'type': 'individual',
+                'plan': user['user_metadata']['plan'],
+                'status': 'inactive',
+                'searches': 0,
+                'searches_performed': 0,
+                'searches_available': 0,
+            
+            }
+            return JsonResponse({'data': response}, safe=False, status=200)
+
+        except Exception as e:
+            return JsonResponse({"error": "Error al crear el usuario"}, safe=False, status=401)
