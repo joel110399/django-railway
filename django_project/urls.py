@@ -14,4 +14,6 @@ urlpatterns = [
     path('searchusers/', search_views.search_users, name='searchusers'),
     path('gethistory/', search_views.get_history, name='gethistory'),
     path('registerclient/', search_views.register_client, name='registerclient'),
+    path('createchilduser/', search_views.create_child_user, name='createchilduser'),
+    path('getchildren/', search_views.get_children, name='getchildren'),
 ]
